@@ -1,0 +1,111 @@
+:root {
+    --bg-primary-color: #232830;
+    --clr-category: #909090;
+    --clr-f-primary: #FFFFFF;
+    --clr-f-secondary: #FF7575;
+    --clr-f-grid: #0F1217;
+
+    --ff-primary: "Recursive", sans-serif;
+    --ff-secondary: "Poppins", sans-serif;
+
+    --fw-regular: 400;
+    --fw-bold: 600;
+
+    --fs-nav-logo: 1.875rem;
+    --fs-nav-items: 1.5rem;
+    --fs-heading: 4.4375rem;
+    --fs-under-heading: 1.8125rem;
+    --fs-category-list: 1.6875rem;
+    --fs-grid-heading: 1.1875rem;
+    --fs-grid-body: 1rem;
+    --fs-pagination: 1.5625rem;
+    --fs-footer-logo: 1.875rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--ff-primary);
+    background-color: var(--bg-primary-color);
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    width: 70%;
+    height: 100%;
+    margin:auto;
+}
+
+/* Header Contents Below */
+.primary-header {
+    margin-top: 2.5rem;
+}
+
+.top-bar {
+    display:flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--ff-secondary);
+    font-weight: var(--fw-regular);
+    color: var(--clr-f-primary);
+    height: 55px;
+}
+
+.logo-text {
+    align-self: start;
+    font-size: var(--fs-nav-logo);
+}
+
+.nav-list{
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+.nav-list a {
+    color: var(--clr-f-primary);
+}
+
+.main-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-message-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-message-text p:first-child {
+    color: var(--clr-f-secondary);
+    font-family: var(--ff-primary);
+    font-style: italic;
+    font-size: var(--fs-heading);
+    margin-top: 2.5rem;
+}
+
+.main-message-text p:last-child {
+    color: var(--clr-f-primary);
+    font-size: var(--fs-under-heading);
+    font-weight: var(--fw-regular);
+    margin-top: 1rem;
+}
+
+
+
+/* Categories Pagination Below */
