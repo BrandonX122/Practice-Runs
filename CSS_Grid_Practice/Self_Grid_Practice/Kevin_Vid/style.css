@@ -1,0 +1,84 @@
+:root {
+    --ff-primary: Heebo, sans-serif;
+    --ff-secondary: Bungee, cursive;
+    --ff-accent: Bungee Shade, cursive;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+d1,
+dd {
+    margin: 0;
+}
+
+h1, h2,
+h3, h4 {
+    font-family: var(--ff-secondary);
+}
+
+ul[role="list"],
+ol[role="list"] {
+    list-style: none;
+}
+
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100dvh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+}
+
+ a:not([class]) {
+    text-decoration-skip-ink: auto;
+ }
+
+ img, picture {
+    max-width: 100%;
+    display: block;
+ }
+
+ input,
+ button,
+ textarea,
+ select {
+    font:inherit;
+ }
+
+ @media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+ }
+
+body {
+    font-family: var(--ff-primary);
+    font-size: 1rem;
+    padding: 2rem 0;
+}
+
+.container {
+    max-width: 100rem;
+    margin-inline: auto;
+    padding-inline: 2rem;
+}
