@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", "sans-serif";
+}
+
+body {
+    background-color: rgb(19,19,19);
+    color: #fff;
+}
+
+header {
+    background-color: black;
+    position:fixed;
+    top:0;
+    width: 100%;
+    padding: 3rem 12%;
+}
+
+.container {
+    width:92%;
+    margin:auto;
+    border: 2px solid red;
+    height:100%;
+}
+
+.top-bar {
+    background-color: rgb(24, 24, 24);
+    border-radius: 20px;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-bar .logo {
+    font-size: 2rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: white;
+    opacity: 0.8;
+    transition: 0.3s ease;
+}
+.logo:hover {
+    opacity: 1;
+}
+
+.top-bar ul {
+    list-style: none;
+    display: flex;
+    gap: 3rem; 
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+ul li {
+    opacity: 0.7;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+ul li:hover {
+    opacity: 1;
+}
+
+#menu-icon {
+    font-size:3rem;
+    display: none;
+}
+
+.main-section {
+    display:flex;
+    min-height: 100dvh;
+    padding: 10% 12%;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+}
+
+.info-box {
+    flex:1;
+    display:flex;
+    flex-direction: column;
+    gap:1rem;
+}
+
+.info-box h1{
+    font-size: 5rem;
+    line-height: 1;
+}
+.info-box h3 {
+    font-size: 2rem;
+}
+.gradient-text {
+    background: linear-gradient(270deg, #2fffdc 10%, #87ff38 100%);
+    background-clip: text;
+    color:transparent;
+}
+.btn-box {
+    display: flex;
+    gap:1rem;
+}
+.btn {
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    font-size: 1.2rem;
+    background-color: #fff;
+    border: 2px solid transparent; 
+    color:black;
+    transition: 0.2s ease;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: rgb(19,19,19);
+    color: white;
+    border: 2px solid white;
+}
+
+.bento-grid {
+    flex:1;
+}
