@@ -1,0 +1,13 @@
+:root {
+    --bg-main: #69B99D;
+    --bg-secondary: #FFFFFF;
+    --logo-color: #69B99D;
+    --nav-color: #1F1534;
+    --header-color: #000000;
+    --p-color: #7D7987;
+}
+
+body {
+    background-color: var(--bg-main);
+    min-height: 100dvh;
+}
