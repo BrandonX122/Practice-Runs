@@ -100,6 +100,12 @@ button {
     background-color: #69B99D;
     border: transparent;
     margin-top: 2.5rem;
+    cursor: pointer;
+    transition: 0.4s ease;
+}
+
+button:hover {
+    box-shadow: 0px 3px 10px rgb(0,0,0,0.2);
 }
 
 img {
@@ -107,5 +113,31 @@ img {
     width: 100%;
     height: 100%;
 }
-
 /* Add media query under 900px for responsive */
+
+@media (max-width: 900px) {
+    .container {
+        max-width: 740px;
+    }
+
+    img {
+        max-width: 440px;
+    }
+}
+
+@media (max-width: 740px) {
+    .container {
+        max-width: 740px;
+    }
+
+    .header-contents {
+        flex-direction: column;
+    }
+    .h-writing {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+}
