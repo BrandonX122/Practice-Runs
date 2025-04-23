@@ -11,3 +11,13 @@
     --ff-primary: "Heebo", 'sans-serif';
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100dvh;
+    font-family: var(--ff-primary);
+}
