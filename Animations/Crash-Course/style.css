@@ -31,7 +31,7 @@ body {
     /* animation-direction: alternate; */
     animation-fill-mode: forwards; 
     /* Stops the animation in its final form^ */
-    animation-play-state: paused;
+    /* animation-play-state: paused; */
 }
 
 .element:hover {
