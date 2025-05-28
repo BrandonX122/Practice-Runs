@@ -56,3 +56,6 @@ function saveColor() {
     });
 }
 
+//Add gradient effect onto subheader with all the color
+//improve UI with animations
+//add playful js such as make random put the button in random places
