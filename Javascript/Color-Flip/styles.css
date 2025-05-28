@@ -7,6 +7,7 @@
 body {
     min-height: 100dvh;
     font-family: "Poppins", sans-serif;
+    transition: background-color ease 0.6s;
 }
 
 header {
@@ -18,11 +19,30 @@ header {
     transition: all ease 0.3s;
 }
 
+ul {
+    list-style: none;
+    padding: 0.25rem;
+    margin:auto;
+    margin-top: 12rem;
+    max-width: 300px;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border-top: white solid 2px;
+    border-bottom: white solid 2px;
+}
+
+ul button{
+    margin: 2px;
+}
+
 .h-container {
+    height: 100%;
     width: 100%;
-    max-width: 750px;
+    max-width: 950px;
     display: flex;
-    padding: 1rem 3rem;
+    padding: 1rem;
     justify-content: space-between;
     align-items: center;
 }
@@ -37,6 +57,7 @@ header:hover {
     width: 100%;
     max-width: 525px;
     margin: auto;
+    margin-bottom: 5rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 0.5rem;
@@ -44,14 +65,30 @@ header:hover {
     border-radius: 10px;
 }
 
-.container button {
+#save-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:auto;
+    width: 100px;
+}
+
+button {
     padding: 0.5rem;
-    border: 0;
+    border: 1px white solid;
     border-radius: 5px;
     color: #fff;
     font-weight: 500;
     font-size: 1.25rem;
     cursor: pointer;
+}
+
+#savebtn {
+    font-size: 0.75rem;
+    font-weight: 400;
+    background-color: #fff;
+    color: black;
+    border: 2px solid #dcdcdc;
 }
 
 #green {
@@ -68,4 +105,5 @@ header:hover {
 }
 #random {
     background: rgb(95, 95, 95);
+    border: 2px rgb(150, 150, 150) solid;
 }
