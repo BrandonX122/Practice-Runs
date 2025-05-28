@@ -3,6 +3,7 @@ const greenButton = document.querySelector('#green');
 const randomButton = document.querySelector('#random');
 const saveButton = document.querySelector('#savebtn');
 const savedColors = document.querySelector('ul');
+const savedColorsSet = new Set();
 
 
 greenButton.addEventListener('click', (e) => {
@@ -32,12 +33,26 @@ function randomColor() {
 
 function saveColor() {
     const currentColor = body.style.backgroundColor;
-    console.log(currentColor);
     const button = document.createElement('button');
     button.style.backgroundColor = currentColor;
+
+    // const exist = Array.from(savedColors.children).some(child => {
+    //     return child.style.backgroundColor === currentColor;
+    // })
+
+    // if(!exist) {
+    //     savedColors.appendChild(button);
+    // }
+
+    //USE SET FOR PERFORMANCE ->
+
+    if(!savedColorsSet.has(currentColor)) {
+        savedColors.appendChild(button);
+        savedColorsSet.add(currentColor);
+    }
+
     button.addEventListener('click', (e) => {
         setColor(currentColor);
-    })
-    savedColors.appendChild(button);
+    });
 }
 
