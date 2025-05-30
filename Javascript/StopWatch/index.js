@@ -3,7 +3,6 @@ const buttons = document.querySelectorAll('.btn');
 let [milseconds, seconds, minutes, hours] = [0,0,0,0];
 //equal to setting multiple variable into a value.
 let timer = null;
-let startTime = 0;
 
 buttons.forEach((button) => {
     button.addEventListener('click', (e) => {
