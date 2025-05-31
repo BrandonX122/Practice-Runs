@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Heebo:wght@100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Recursive:wght@300..1000&family=Righteous&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body id="pomo-page">
+
+    <header class="p-header">
+        <h1 class="p-title">POMODORO</h1>
+        <button id="setting-btn">Settings</button>
+    </header>
+
+    <div class="settings">
+        <div class="settings-content">
+            <label for="pomodoro">Pomodoro</label>
+            <input type="number" name="pomodoro" id="pomodoro-input" value="25">
+            <label for="short">Short Break</label>
+            <input type="number" name="short" id="short-input" value="5">
+            <label for="long">Long</label>
+            <input type="number" name="long" id="long-input" value="10">
+
+            <button id="save-btn">Save</button>
+        </div>
+    </div>
+
+    <div class="p-container">
+
+        
+        <h2 class="pomodoro-timer">25 : 00</h2>
+
+        <div class="p-btn-container">
+            <button class="p-btn" id="p-start">START</button>
+            <button class="p-btn" id="p-pause">PAUSE</button>
+        </div>
+
+    </div>
+
+    <!-- <a href="./index.html"><button class='btn' id="stopwatch">STOPWATCH</button></a> -->
+
+    <script src="./index.js"></script>
+</body>
+</html>
+
