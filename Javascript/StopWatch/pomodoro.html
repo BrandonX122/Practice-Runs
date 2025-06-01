@@ -11,10 +11,7 @@
 </head>
 <body id="pomo-page">
 
-    <header class="p-header">
-        <h1 class="p-title">POMODORO</h1>
-        <button id="setting-btn">Settings</button>
-    </header>
+    <button class="btn" id="setting-btn">Settings</button>
 
     <div class="settings">
         <div class="settings-content">
@@ -29,19 +26,25 @@
         </div>
     </div>
 
-    <div class="p-container">
+    <h1 class="p-title">POMODORO</h1> 
 
+    <div class="p-container">
+        <div class="options">
+            <button class="p-btn btn option" id="pomodoro-option">POMODORO</button>
+            <button class="p-btn btn option" id="short-option">START</button>
+            <button class="p-btn btn option" id="long-option">LONG</button>
+        </div>
         
         <h2 class="pomodoro-timer">25 : 00</h2>
 
         <div class="p-btn-container">
-            <button class="p-btn" id="p-start">START</button>
-            <button class="p-btn" id="p-pause">PAUSE</button>
+            <button class="p-btn btn" id="p-start">START</button>
+            <button class="p-btn btn" id="p-pause">PAUSE</button>
         </div>
 
     </div>
 
-    <!-- <a href="./index.html"><button class='btn' id="stopwatch">STOPWATCH</button></a> -->
+    <a href="./index.html"><button class='btn' id="stopwatch">STOPWATCH</button></a>
 
     <script src="./index.js"></script>
 </body>

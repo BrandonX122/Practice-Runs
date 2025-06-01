@@ -8,29 +8,57 @@ const pomodoroInput = document.querySelector('#pomodoro-input');
 const shortInput = document.querySelector('#short-input');
 const longInput = document.querySelector('#long-input');
 const pomoDisplay = document.querySelector('.pomodoro-timer');
+const pomoStartButton = document.querySelector('#p-start');
+const optionButtons = document.querySelectorAll('.option');
+let currentOption = 'pomodoro' //default
 let [milseconds, seconds, minutes, hours] = [0,0,0,0];
 let [pomoMinutes, shortMinutes, longMinutes] = [
-    pomodoroInput.value, shortInput.value, longInput.value    
+    parseFloat(pomodoroInput.value), parseFloat(shortInput.value), parseFloat(longInput.value)    
 ]
 let timerDuration = null;
 let timer = null;
 let pomoTimer = null;
 
 //POMODORO
+optionButtons.forEach((button) => {
+
+    button.addEventListener('click', (e) => {
+        if(pomoTimer) {
+            clearInterval(pomoTimer)
+            pomoStartButton.disabled = false;
+        }
+        if(button.id === 'pomodoro-option') {
+            currentOption = 'pomodoro';
+            pomoDisplay.innerHTML = convertToMin(pomoMinutes);
+        } else if(button.id === 'short-option') {
+            currentOption = 'short';
+            pomoDisplay.innerHTML = convertToMin(shortMinutes);
+        } else if(button.id === 'long-option') {
+            currentOption = 'long';
+            pomoDisplay.innerHTML = convertToMin(longMinutes);
+        }
+    });
+    
+});
 settingBtn.addEventListener('click', (e) => {
     settingDisplay.classList.add('show');
 })
 
 saveBtn.addEventListener('click', (e) => {
-    pomoMinutes = pomodoroInput.value;
-    // shortMinutes = shortInput.value;
-    // longMinutes = longInput.value;
+    pomoMinutes = parseFloat(pomodoroInput.value);
+    shortMinutes = parseFloat(shortInput.value);
+    longMinutes = parseFloat(longInput.value);
 
-    const pm = convertToMin(pomoMinutes);
-    // const sm = convertToMin(shortMinutes);
-    // const lm = convertToMin(longMinutes);
-
-    pomoDisplay.innerHTML = pm;
+    if(currentOption === 'pomodoro') {
+        const pm = convertToMin(pomoMinutes);
+        pomoDisplay.innerHTML = pm;
+    } else if(currentOption === 'short') {
+        const sm = convertToMin(shortMinutes);
+        pomoDisplay.innerHTML = sm;
+    } else if(currentOption === 'long') {
+        const lm = convertToMin(longMinutes);
+        pomoDisplay.innerHTML = lm;
+    }
 
     settingDisplay.classList.remove('show');
 })
@@ -41,15 +69,15 @@ pomoButtons.forEach((p_button) => {
             if(pomoTimer) {
                 clearInterval(pomoTimer);
             }
-            const timerMin = parseInt(pomoDisplay.innerHTML.split(":")[0]);
+            const timerMin = parseInt(pomoDisplay.innerHTML.split(":")[0]); //ParseInt b/c it'll be a sting value, not number
             const timerSec = parseInt(pomoDisplay.innerHTML.split(":")[1]);
             timerDuration = (((timerSec / 60) + timerMin) * 60);
 
             pomoTimer = setInterval(updatePomodoro, 1000);
-            document.querySelector('#p-start').disabled = true;
+            pomoStartButton.disabled = true;
         } else if(p_button.id === 'p-pause') {
             clearInterval(pomoTimer);
-            document.querySelector('#p-start').disabled = false;
+            pomoStartButton.disabled = false;
         }
     })
 });
@@ -60,7 +88,7 @@ function updatePomodoro () {
     if(timerDuration < 0) {
         clearInterval(pomoTimer);
         pomoDisplay.innerHTML = "00 : 00";
-        document.querySelector('#p-start').disabled = false;
+        pomoStartButton.disabled = false;
     } else {
         let value = timerDuration / 60;
         pomoDisplay.innerHTML = `${convertToMin(value)}`
