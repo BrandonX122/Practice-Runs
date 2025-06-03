@@ -181,6 +181,8 @@ body#pomo-page {
     border-radius: 20px;
     padding: 1rem 2rem;
     margin-bottom: 7rem;
+    background: rgba(255, 255, 255, 0.027);
+    backdrop-filter: blur(10px);
     transition: all ease 0.6s;
 }
 
