@@ -115,6 +115,24 @@ form{
     fill: #ff0033;
 }
 
+.edit-button {
+    padding:5px;
+    background:none;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    border:none;
+}
+
+.edit-button svg{
+    transition:200ms ease;
+}
+
+.edit-button:hover svg{
+    fill:var(--acccent-color)
+}
+
 .custom-checkbox {
     flex-shrink: 0;
     min-height: 20px;
