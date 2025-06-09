@@ -112,8 +112,5 @@ function loadTodos() {
     return JSON.parse(todos);
 }
 
-//EDIT FUNCTION
-//SEARCH
 //PIority
 //group task
-//
