@@ -1,4 +1,4 @@
-const apiKey = "e0dd12c9301dc1a5a5a7d1c099c4c11e";
+const apiKey = "";
 const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=imperial&q=";
 
 const searchBox = document.querySelector('.search input');
