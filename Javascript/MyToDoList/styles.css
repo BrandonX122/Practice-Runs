@@ -1,0 +1,18 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+.list-container {
+    border: 1px red solid;
+    width: 100%;
+    max-width: 300px;
+}
+
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    gap: 0.75rem;
+}
