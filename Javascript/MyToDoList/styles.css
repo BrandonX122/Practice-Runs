@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+.input-field:focus {
+    outline:none; 
+    /* removes the highlight when using it, making it more modern */
+}
+
 .list-container {
     padding: 1rem;
     border: 1px red solid;

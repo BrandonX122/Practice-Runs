@@ -1,4 +1,4 @@
-const inputField = document.querySelector('#input-field');
+const inputField = document.querySelector('.input-field');
 const todoList = document.querySelector('ul');
 const todoForm = document.querySelector('form');
 let allTodos = loadTodos();
@@ -21,6 +21,16 @@ function addTodo() {
         saveTodos();
     }
     inputField.value = '';
+}
+
+function editTodoItem(inputField, index) {
+    inputField.addEventListener('keypress', (e) => {
+        if(e.key === 'Enter') {
+            allTodos[index].text = inputField.value;
+            saveTodos();
+            updateTodoList();
+        }
+    })
 }
 
 function deleteTodoItem(index) {
@@ -46,9 +56,21 @@ function createTodoItem(todo, index) {
         <label for=${todoID} class='todo-text'>
             ${todoText}
         </label>
-        <button>Delete</button>
+        <button id='editButton'>Edit</button>
+        <button id='deleteButton'>Delete</button>
     `
-    const deleteButton = todoLi.querySelector('button');
+
+    const editButton = todoLi.querySelector('#editButton');
+    editButton.addEventListener('click', () => {
+        const oldTextElement = todoLi.querySelector('.todo-text')
+        const newInputField = document.createElement('input');
+        newInputField.value = todoText;
+        newInputField.classList.add('input-field');
+        oldTextElement.innerHTML = '';
+        oldTextElement.append(newInputField);
+        editTodoItem(newInputField, index)
+    })
+    const deleteButton = todoLi.querySelector('#deleteButton');
     deleteButton.addEventListener('click', () => {
         deleteTodoItem(index);
     })
