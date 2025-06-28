@@ -1,4 +1,4 @@
-const inputField = document.querySelector('.input-field');
+const inputField = document.querySelector('#main-input-field');
 const todoList = document.querySelector('ul');
 const todoForm = document.querySelector('form');
 let allTodos = loadTodos();
