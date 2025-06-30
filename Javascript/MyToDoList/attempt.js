@@ -52,12 +52,16 @@ function createTodoItem(todo, index) {
     const todoID = "todo-" + index;
     const todoText = todo.text;
     todoLi.innerHTML = `
-        <input type='checkbox' id=${todoID}>
+        <div class='top-of-todo'>
+            <input type='checkbox' id=${todoID} class='custom-checkbox'>
+            <div class='todo-buttons'>
+                <button id='editButton'>Edit</button>
+                <button id='deleteButton'>Delete</button> 
+            </div> 
+        </div>
         <label for=${todoID} class='todo-text'>
             ${todoText}
         </label>
-        <button id='editButton'>Edit</button>
-        <button id='deleteButton'>Delete</button>
     `
 
     const editButton = todoLi.querySelector('#editButton');

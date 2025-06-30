@@ -73,13 +73,39 @@ ul {
 }
 
 li {
+    display: flex;
+    flex-direction: column;
+    position: relative;
     border: 1px solid blue;
     height: 250px;
     padding: 0.5rem;
     overflow: auto;
+    text-align: center;
     border-radius: 6px;
+}
+
+.top-of-todo {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.todo-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.todo-text {
+    margin: 1rem;
+    white-space: normal;   /* Allow text to wrap */
+    word-break: break-word; /* Break long words if needed */
+    display: block;        /* Makes label behave like a block element */
 }
 
 li::-webkit-scrollbar {
     display: none;               
+}
+
+li div {
+    border: 1px green solid;
 }
