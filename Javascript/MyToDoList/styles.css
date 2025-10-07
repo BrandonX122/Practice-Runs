@@ -105,7 +105,3 @@ li {
 li::-webkit-scrollbar {
     display: none;               
 }
-
-li div {
-    border: 1px green solid;
-}
