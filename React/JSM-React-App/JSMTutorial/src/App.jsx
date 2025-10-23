@@ -25,7 +25,6 @@ const App = () => {
   // Debounce the search term to prevent making too many API requests
   // by waiting for the user to stop typing for 500ms
   useDebounce(() => setDebouncedSearchTerm(searchTerm), 500, [searchTerm]);
-
   useEffect(() => {
     fetchMovies(debouncedSearchTerm);
   }, [debouncedSearchTerm]);
