@@ -40,30 +40,14 @@ const App = () => {
     getAccessToken();
   }, []);
 
-  async function getArtist() {
-    const res = await fetch(`${BASE_URL}/v1/artists/4Z8W4fKeB5YxbusRsdQVPb`, {
-      method: "GET",
-      headers: {
-        accept: "application/json",
-        Authorization: `Bearer ${accessToken}`,
-      },
-    });
-
-    if (!res.ok) {
-      throw new Error("Failed to retrieve artist");
-    }
-    const data = await res.json();
-    console.log(data);
+  if (!accessToken) {
+    return <div>Loading...</div>;
   }
-  useEffect(() => {
-    if (!accessToken) return;
-    getArtist();
-  }, [accessToken]);
 
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<MainLayout />}>
-        <Route index element={<HomePage />} />
+        <Route index element={<HomePage token={accessToken} />} />
         <Route path="/search" element={<SearchPage />} />
       </Route>
     )

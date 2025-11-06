@@ -1,9 +1,11 @@
 import React from "react";
 import Hero from "../components/ui/Hero";
-const HomePage = () => {
+import TopListings from "../components/ui/TopListings";
+const HomePage = ({ token }) => {
   return (
     <>
       <Hero />
+      <TopListings token={token} />
     </>
   );
 };
