@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardAction,
@@ -15,6 +17,7 @@ const TopListings = ({ token }) => {
   const [topNewAlbums, setTopNewAlbums] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [showFullList, setShowFullList] = useState(false);
 
   useEffect(() => {
     fetchTopListing();
@@ -61,6 +64,7 @@ const TopListings = ({ token }) => {
       }
 
       setTopNewAlbums(data.albums.items);
+
       console.log("Successfully fetched albums:", data.albums.items);
     } catch (err) {
       const errorMsg =
@@ -73,37 +77,47 @@ const TopListings = ({ token }) => {
     }
   };
 
+  const handleToggle = () => {
+    setShowFullList((prevState) => !prevState);
+  };
+  const showAlbums = showFullList ? topNewAlbums : topNewAlbums.slice(0, 10);
+
   return (
-    <section>
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h1 className="text-center my-5 font-bold md:text-5xl sm:text-2xl">
+    <section className="bg-indigo-500 border-t-3">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col justify-center">
+        <h1 className="self-center my-5 text-white border-b-3 pb-3 font-bold md:text-5xl sm:text-2xl">
           Top Albums This Year
         </h1>
-        <div className="grid grid-cols-5 gap-3 border border-indigo-500 p-5">
-          {topNewAlbums.map(
-            (album) =>
-              album.album_type === "album" && (
-                <div key={album.id}>
-                  <Card className="px-3">
-                    <img src={album.images[1].url} />
-                    <CardDescription>
-                      <h1 className="text-xl font-bold truncate">
-                        {album.name}
-                      </h1>
-                      <p className="font-semibold">
-                        {album.artists.map((artist, i) => (
-                          <span key={artist.id}>
-                            {artist.name}
-                            {i + 1 < album.artists.length && ", "}
-                          </span>
-                        ))}
-                      </p>
-                    </CardDescription>
-                  </Card>
-                </div>
-              )
-          )}
+        <div className="grid grid-cols-5 gap-3 rounded-xl bg-indigo-400 p-5">
+          {showAlbums.map((album) => (
+            <div key={album.id}>
+              <Link to="/search">
+                <Card className="px-3 cursor-pointer hover:bg-[#ced4da] transition duration-300">
+                  <img
+                    src={album.images[1].url}
+                    className="rounded-md shadow-md"
+                  />
+                  <CardDescription>
+                    <h1 className="text-xl font-bold truncate text-black">
+                      {album.name}
+                    </h1>
+                    <p className="font-semibold">
+                      {album.artists.map((artist, i) => (
+                        <span key={artist.id}>
+                          {artist.name}
+                          {i + 1 < album.artists.length && ", "}
+                        </span>
+                      ))}
+                    </p>
+                  </CardDescription>
+                </Card>
+              </Link>
+            </div>
+          ))}
         </div>
+        <Button onClick={handleToggle} className="my-5 self-center">
+          {showFullList ? "Show Less" : "Show More"}
+        </Button>
       </div>
     </section>
   );

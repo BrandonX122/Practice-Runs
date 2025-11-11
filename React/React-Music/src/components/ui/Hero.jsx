@@ -3,9 +3,9 @@ import React from "react";
 const Hero = () => {
   return (
     <section className="bg-indigo-500">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col">
-        <div className="my-8">
-          <h1 className="border-b-3 border-white inline-block text-4xl font-extrabold text-white pb-4 sm:text-5xl md:text-6xl">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex">
+        <div className="my-8 bg-indigo-400 p-5 rounded-xl">
+          <h1 className="border-b-3 border-white text-4xl bg-indigo-400 font-extrabold text-white pb-4 sm:text-5xl md:text-6xl">
             Never Ending Rush <br />
             of Music at Your Disposal
           </h1>
