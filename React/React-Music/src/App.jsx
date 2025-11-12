@@ -48,7 +48,7 @@ const App = () => {
     createRoutesFromElements(
       <Route path="/" element={<MainLayout />}>
         <Route index element={<HomePage token={accessToken} />} />
-        <Route path="/search" element={<SearchPage />} />
+        <Route path="/search" element={<SearchPage token={accessToken} />} />
       </Route>
     )
   );
