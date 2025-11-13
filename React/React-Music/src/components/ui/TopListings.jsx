@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import SkeletonCard from "./SkeletonCard";
 import {
@@ -17,10 +17,12 @@ import { useDebounce } from "react-use";
 const TopListings = ({ token, isHome = true, searchTerm = "" }) => {
   const BASE_URL = "https://api.spotify.com";
   const [topNewAlbums, setTopNewAlbums] = useState([]);
+  const [topArtists, setTopArtists] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [showFullList, setShowFullList] = useState(false);
   const [debouncedTerm, setDebouncedTerm] = useState("");
+  const navigate = useNavigate();
 
   useDebounce(() => setDebouncedTerm(searchTerm), 500, [searchTerm]);
   useEffect(() => {
@@ -67,6 +69,10 @@ const TopListings = ({ token, isHome = true, searchTerm = "" }) => {
         throw new Error("Invalid response structure");
       }
 
+      if (query) {
+        setTopNewAlbums(data.albums.items);
+        setTopArtists(data.artists.items);
+      }
       setTopNewAlbums(data.albums.items);
     } catch (err) {
       const errorMsg =
@@ -94,30 +100,38 @@ const TopListings = ({ token, isHome = true, searchTerm = "" }) => {
         )}
         <div className="grid grid-cols-5 gap-3 rounded-xl bg-indigo-400 p-5">
           {isLoading
-            ? Array.from({ length: 10 }).map((i) => <SkeletonCard key={i} />)
+            ? Array.from({ length: 10 }).map((_, i) => <SkeletonCard key={i} />)
             : showAlbums.map((album) => (
                 <div key={album.id}>
-                  <Link to="/search">
-                    <Card className="px-3 cursor-pointer hover:bg-[#ced4da] transition duration-300">
-                      <img
-                        src={album.images[1]?.url}
-                        className="rounded-md shadow-md"
-                      />
-                      <CardDescription>
-                        <h1 className="text-xl font-bold truncate text-black">
-                          {album.name}
-                        </h1>
-                        <p className="font-semibold">
-                          {album.artists.map((artist, i) => (
-                            <span key={artist.id}>
-                              {artist.name}
-                              {i + 1 < album.artists.length && ", "}
-                            </span>
-                          ))}
-                        </p>
-                      </CardDescription>
-                    </Card>
-                  </Link>
+                  <Card
+                    onClick={() => {
+                      window.open(album.uri);
+                    }}
+                    className="px-3 cursor-pointer hover:bg-[#ced4da] transition duration-300"
+                  >
+                    <img
+                      src={album.images[1]?.url}
+                      className="rounded-md shadow-md"
+                    />
+                    <CardDescription>
+                      <h1 className="hover:underline text-xl font-bold truncate text-black">
+                        {album.name}
+                      </h1>
+                      <div className="font-semibold">
+                        {album.artists.map((artist, i) => (
+                          <a
+                            href={artist.uri}
+                            key={artist.id}
+                            onClick={(e) => e.stopPropagation()}
+                            className="hover:underline"
+                          >
+                            {artist.name}
+                            {i + 1 < album.artists.length && ", "}
+                          </a>
+                        ))}
+                      </div>
+                    </CardDescription>
+                  </Card>
                 </div>
               ))}
         </div>

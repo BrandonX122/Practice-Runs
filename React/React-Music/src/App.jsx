@@ -41,7 +41,7 @@ const App = () => {
   }, []);
 
   if (!accessToken) {
-    return <div>Loading...</div>;
+    return;
   }
 
   const router = createBrowserRouter(
